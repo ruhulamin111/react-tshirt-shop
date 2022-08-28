@@ -1,5 +1,5 @@
 .product {
-    border: 1px solid deeppink;
+    border: 1px solid darkmagenta;
     padding: 1em;
 
 }
@@ -19,6 +19,6 @@
     border: none;
     cursor: pointer;
     border-radius: 1em;
-    background-color: deeppink;
-    color: white;
+    background-color: darkmagenta;
+    color: yellow;
 }
