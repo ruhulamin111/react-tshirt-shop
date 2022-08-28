@@ -27,9 +27,10 @@ const Home = () => {
     if (cart.length === 1) {
         message = <p>welcome</p>
     }
+    const brand = 'Easy';
 
     return (
-        <Shirt.Provider value='easy'>
+        <Shirt.Provider value={brand}>
             <div className='home-container'>
                 <div className="products-container">
                     {
