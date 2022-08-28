@@ -1,12 +1,12 @@
 import React from 'react';
 import './Item.css'
 
-const Item = ({ item }) => {
+const Item = ({ item, removeFromCart }) => {
     return (
         <div>
             <div className='item'>
-                <h4>{item.name}</h4>
-                <button>Remove</button>
+                <p>{item.name}</p>
+                <button onClick={() => removeFromCart(item)}>Remove</button>
             </div>
 
         </div>

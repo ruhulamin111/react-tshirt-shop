@@ -15,3 +15,12 @@
     position: sticky;
     top: 80px;
 }
+
+.proceed {
+    border: none;
+    padding: 1em;
+    background-color: green;
+    color: white;
+    border-radius: 1em;
+    cursor: pointer;
+}

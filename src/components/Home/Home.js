@@ -8,8 +8,18 @@ const Home = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useState([]);
     const addToCart = (selected) => {
-        const newCart = [...cart, selected]
-        setCart(newCart)
+        const exist = cart.find(item => item.id === selected.id);
+        if (exist) {
+            alert('This item is already selected')
+        }
+        else {
+            const newCart = [...cart, selected]
+            setCart(newCart)
+        }
+    }
+    const removeFromCart = (selected) => {
+        const rest = cart.filter(item => item.id !== selected.id)
+        setCart(rest)
     }
 
     return (
@@ -27,8 +37,9 @@ const Home = () => {
                 <h3>Selected Item <sup>{cart.length}</sup></h3>
                 <Cart
                     cart={cart}
+                    removeFromCart={removeFromCart}
                 ></Cart>
-
+                <button className='proceed'>Proceed Checkout</button>
             </div>
         </div>
     );
