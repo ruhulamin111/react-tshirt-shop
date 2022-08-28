@@ -5,7 +5,7 @@ import Product from '../Product/Product';
 import './Home.css';
 
 const Home = () => {
-    const [products, setProducts] = useProducts();
+    const [products] = useProducts();
     const [cart, setCart] = useState([]);
     const addToCart = (selected) => {
         const exist = cart.find(item => item.id === selected.id);
