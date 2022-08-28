@@ -21,6 +21,10 @@ const Home = () => {
         const rest = cart.filter(item => item.id !== selected.id)
         setCart(rest)
     }
+    let message;
+    if (cart.length === 1) {
+        message = <p>welcome</p>
+    }
 
     return (
         <div className='home-container'>
@@ -40,6 +44,10 @@ const Home = () => {
                     removeFromCart={removeFromCart}
                 ></Cart>
                 <button className='proceed'>Proceed Checkout</button>
+                {message}
+                {cart.length === 2 ? <p>thanks</p> : <p></p>}
+                {cart.length === 3 && <p>congratulation</p>}
+                {cart.length !== 4 || <p>surprice gift</p>}
             </div>
         </div>
     );
