@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import useProducts from '../../hooks/useProducts/useProducts';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Home.css';
+
+export const Shirt = createContext('polo');
 
 const Home = () => {
     const [products] = useProducts();
@@ -27,29 +29,31 @@ const Home = () => {
     }
 
     return (
-        <div className='home-container'>
-            <div className="products-container">
-                {
-                    products.map((product, index) => <Product
-                        key={index}
-                        product={product}
-                        addToCart={addToCart}
-                    ></Product>)
-                }
+        <Shirt.Provider value='easy'>
+            <div className='home-container'>
+                <div className="products-container">
+                    {
+                        products.map((product, index) => <Product
+                            key={index}
+                            product={product}
+                            addToCart={addToCart}
+                        ></Product>)
+                    }
+                </div>
+                <div className="cart-container">
+                    <h3>Selected Item <sup>{cart.length}</sup></h3>
+                    <Cart
+                        cart={cart}
+                        removeFromCart={removeFromCart}
+                    ></Cart>
+                    <button className='proceed'>Proceed Checkout</button>
+                    {message}
+                    {cart.length === 2 ? <p>thanks</p> : <p></p>}
+                    {cart.length === 3 && <p>congratulation</p>}
+                    {cart.length !== 4 || <p>surprice gift</p>}
+                </div>
             </div>
-            <div className="cart-container">
-                <h3>Selected Item <sup>{cart.length}</sup></h3>
-                <Cart
-                    cart={cart}
-                    removeFromCart={removeFromCart}
-                ></Cart>
-                <button className='proceed'>Proceed Checkout</button>
-                {message}
-                {cart.length === 2 ? <p>thanks</p> : <p></p>}
-                {cart.length === 3 && <p>congratulation</p>}
-                {cart.length !== 4 || <p>surprice gift</p>}
-            </div>
-        </div>
+        </Shirt.Provider>
     );
 };
 
