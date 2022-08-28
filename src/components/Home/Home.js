@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import useProducts from '../../hooks/useProducts/useProducts';
-import { addToDb, storedCart } from '../../utilites/database';
+import { addToDb, removeFromDb, storedCart } from '../../utilites/database';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Home.css';
@@ -35,6 +35,7 @@ const Home = () => {
         addToDb(selected.id)
     }
     const removeFromCart = (selected) => {
+        removeFromDb(selected.id)
         const rest = cart.filter(item => item.id !== selected.id)
         setCart(rest)
     }
