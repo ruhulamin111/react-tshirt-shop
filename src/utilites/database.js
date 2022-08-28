@@ -17,6 +17,19 @@ const addToDb = (id) => {
     localStorage.setItem('shopItem', JSON.stringify(shopItem));
 }
 
+const storedCart = () => {
+    let shopItem;
+    const savedItem = localStorage.getItem('shopItem');
+    if (savedItem) {
+        shopItem = JSON.parse(savedItem);
+    }
+    else {
+        shopItem = {};
+    }
+    return shopItem;
+}
+
 export {
-    addToDb
+    addToDb,
+    storedCart
 };

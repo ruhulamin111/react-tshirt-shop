@@ -1,6 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import useProducts from '../../hooks/useProducts/useProducts';
-import { addToDb } from '../../utilites/database';
+import { addToDb, storedCart } from '../../utilites/database';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Home.css';
@@ -10,6 +10,19 @@ export const Shirt = createContext('polo');
 const Home = () => {
     const [products] = useProducts();
     const [cart, setCart] = useState([]);
+    useEffect(() => {
+        const getCart = storedCart();
+        const savedCart = [];
+        for (const id in getCart) {
+            const addProduct = products.find(product => product.id === id)
+            if (addProduct) {
+                const quantity = getCart[id]
+                addProduct.quantity = quantity;
+                savedCart.push(addProduct)
+            }
+        }
+        setCart(savedCart)
+    }, [products])
     const addToCart = (selected) => {
         const exist = cart.find(item => item.id === selected.id);
         if (exist) {
