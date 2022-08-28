@@ -1,0 +1,24 @@
+.product {
+    border: 1px solid deeppink;
+    padding: 1em;
+
+}
+
+.picture {
+    height: 300px;
+}
+
+.picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.details button {
+    padding: 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 1em;
+    background-color: deeppink;
+    color: white;
+}

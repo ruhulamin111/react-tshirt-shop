@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react"
+import React from 'react';
+import './Product.css'
 
-const useProducts = () => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch('data.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [products])
-    return [products, setProducts]
-}
+const Product = ({ product }) => {
+    const { name, picture, price } = product;
 
-export default useProducts;
+    return (
+        <div className='product'>
+            <div className='picture'>
+                <img src={picture} alt="" />
+            </div>
+            <div className='details'>
+                <h3>{name}</h3>
+                <h4>Price: $ {price}</h4>
+                <button>Buy Now</button>
+            </div>
+
+        </div>
+    );
+};
+
+export default Product;

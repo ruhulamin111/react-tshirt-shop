@@ -6,7 +6,7 @@ const Header = () => {
     const navActive = ({ isActive }) => {
         return {
             textDecoration: isActive ? 'underline' : '',
-            color: isActive ? 'red' : '',
+            color: isActive ? 'yellow' : '',
         }
     }
 

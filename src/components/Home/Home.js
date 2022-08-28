@@ -1,5 +1,6 @@
 import React from 'react';
-import useProducts from '../Product/Product';
+import useProducts from '../../hooks/useProducts/useProducts';
+import Product from '../Product/Product';
 import './Home.css';
 
 const Home = () => {
@@ -8,7 +9,12 @@ const Home = () => {
     return (
         <div className='home-container'>
             <div className="products-container">
-                <p>product</p>
+                {
+                    products.map((product, index) => <Product
+                        key={index}
+                        product={product}
+                    ></Product>)
+                }
             </div>
             <div className="cart-container">
                 <p>cart </p>
