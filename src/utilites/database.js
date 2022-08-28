@@ -9,7 +9,8 @@ const addToDb = (id) => {
     }
     const quatity = shopItem[id];
     if (quatity) {
-        shopItem[id] = quatity + 1;
+        // shopItem[id] = quatity + 1;
+        return
     }
     else {
         shopItem[id] = 1;
