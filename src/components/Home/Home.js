@@ -24,16 +24,11 @@ const Home = () => {
                 }
             </div>
             <div className="cart-container">
-                <h3>Selected Item</h3>
+                <h3>Selected Item <sup>{cart.length}</sup></h3>
                 <Cart
                     cart={cart}
                 ></Cart>
-                {/* {
-                    cart.map((item, index) => <Cart
-                        key={index}
-                        item={item}
-                    ></Cart>)
-                } */}
+
             </div>
         </div>
     );

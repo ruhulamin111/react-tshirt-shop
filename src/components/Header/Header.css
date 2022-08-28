@@ -1,4 +1,6 @@
 header {
+    position: sticky;
+    top: 0;
     background-color: darkmagenta;
     color: white;
     height: 80px;

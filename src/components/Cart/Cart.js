@@ -1,9 +1,16 @@
 import React from 'react';
+import Item from '../Item/Item';
 
 const Cart = ({ cart }) => {
     return (
         <div>
-            <p>{cart.length}</p>
+            {
+                cart.map((item, index) => <Item
+                    key={index}
+                    item={item}
+                ></Item>
+                )
+            }
         </div>
     );
 };
